@@ -1,5 +1,7 @@
 package com.vitta.develop_news.di.module;
 
+import android.content.Context;
+
 import com.vitta.develop_news.App;
 
 import javax.inject.Singleton;
@@ -23,7 +25,7 @@ public class AppModule {
 
     @Provides
     @Singleton
-    App provideApplication(){
+    App provideApplicationContext(){
         return application;
     }
 }
