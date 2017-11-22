@@ -9,9 +9,10 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
-import com.vitta.develop_news.di.AppComponent;
-import com.vitta.develop_news.di.DaggerAppComponent;
-import com.vitta.develop_news.di.module.AppModule;
+import com.vitta.develop_news.component.InitializeService;
+import com.vitta.develop_news.dagger.component.AppComponent;
+import com.vitta.develop_news.dagger.component.DaggerAppComponent;
+import com.vitta.develop_news.dagger.module.AppModule;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -50,7 +51,7 @@ public class App extends Application {
         instance = this;
         //初始化屏幕宽高
         getScreenSize();
-        //在子线程中完成其他初始化
+        //在子线程中完成其他初始化，优化app的启动速度
         InitializeService.start(this);
     }
 

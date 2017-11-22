@@ -1,5 +1,14 @@
 package com.vitta.develop_news.base;
 
+import android.support.v7.app.AppCompatDelegate;
+import android.view.ViewGroup;
+
+import com.vitta.develop_news.App;
+import com.vitta.develop_news.dagger.component.ActivityComponent;
+import com.vitta.develop_news.dagger.component.DaggerActivityComponent;
+import com.vitta.develop_news.dagger.module.ActivityModule;
+import com.vitta.develop_news.util.SnackbarUtil;
+
 import javax.inject.Inject;
 
 /**
@@ -15,14 +24,52 @@ public abstract class BaseActivity<P extends BasePresenter> extends RootActivity
     protected P mPresenter;
 
 
+    protected ActivityComponent getActivityComponent(){
+        return DaggerActivityComponent.builder()
+                .appComponent(App.getAppComponent())
+                .activityModule(getActivityModule())
+                .build();
+    }
+
+    protected ActivityModule getActivityModule() {
+        return new ActivityModule(this);
+    }
+
+    //-------------------管理presenter 和 component 的生命周期----------------------------------------
+    @Override
+    protected void onViewCreated() {
+        super.onViewCreated();
+        //在onCreate 方法里注入 ，注入this对象，那么component 的生命周期跟activity 的生命周期同步
+        initInject();
+        if (mPresenter != null){
+            mPresenter.attachView(this);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mPresenter != null){
+            mPresenter.detachView();
+        }
+    }
+    //-------------------管理presenter 和 component 的生命周期----------------------------------------
+
     @Override
     public void showErrorMsg(String msg) {
-
+        SnackbarUtil.show(((ViewGroup) findViewById(android.R.id.content)).getChildAt(0), msg);
     }
 
     @Override
     public void userNightMode(boolean isNight) {
-
+        if (isNight) {
+            AppCompatDelegate.setDefaultNightMode(
+                    AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(
+                    AppCompatDelegate.MODE_NIGHT_NO);
+        }
+        recreate();
     }
 
     @Override
@@ -45,13 +92,5 @@ public abstract class BaseActivity<P extends BasePresenter> extends RootActivity
 
     }
 
-    @Override
-    protected int getLayout() {
-        return 0;
-    }
-
-    @Override
-    protected void initEventAndData() {
-
-    }
+    protected abstract void initInject();
 }

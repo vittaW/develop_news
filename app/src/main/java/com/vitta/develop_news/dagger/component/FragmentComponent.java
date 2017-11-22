@@ -1,4 +1,4 @@
-package com.vitta.develop_news.di;
+package com.vitta.develop_news.dagger.component;
 
 /**
  * 作者：王文婷 邮箱：WVitta@126.com

@@ -1,6 +1,4 @@
-package com.vitta.develop_news.di.module;
-
-import android.content.Context;
+package com.vitta.develop_news.dagger.module;
 
 import com.vitta.develop_news.App;
 

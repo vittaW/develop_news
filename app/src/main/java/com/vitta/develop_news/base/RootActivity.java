@@ -30,7 +30,7 @@ public abstract class RootActivity extends SupportActivity {
         onViewCreated();
         //添加到activity 管理栈中
         App.getInstance().addActivity(this);
-        initEventAndData();
+        initView();
     }
 
     protected void onViewCreated() {
@@ -43,5 +43,5 @@ public abstract class RootActivity extends SupportActivity {
         mUnBinder.unbind();
     }
     protected abstract int getLayout();
-    protected abstract void initEventAndData();
+    protected abstract void initView();
 }

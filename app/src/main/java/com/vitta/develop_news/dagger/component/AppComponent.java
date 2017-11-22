@@ -1,7 +1,7 @@
-package com.vitta.develop_news.di;
+package com.vitta.develop_news.dagger.component;
 
 import com.vitta.develop_news.App;
-import com.vitta.develop_news.di.module.AppModule;
+import com.vitta.develop_news.dagger.module.AppModule;
 
 import javax.inject.Singleton;
 
@@ -13,9 +13,9 @@ import dagger.Component;
  * 描述：AppComponent
  */
 @Singleton
-@Component(modules = AppModule.class)
+@Component(modules = {AppModule.class})
 public interface AppComponent {
 
-    App getContext();
+    App getContext();//提供App的Context
 
 }
