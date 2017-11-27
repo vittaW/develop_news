@@ -1,9 +1,11 @@
-package com.vitta.develop_news.base;
+package com.vitta.develop_news.base.activity;
 
 import android.support.v7.app.AppCompatDelegate;
 import android.view.ViewGroup;
 
 import com.vitta.develop_news.App;
+import com.vitta.develop_news.base.presenter.BasePresenter;
+import com.vitta.develop_news.base.BaseView;
 import com.vitta.develop_news.dagger.component.ActivityComponent;
 import com.vitta.develop_news.dagger.component.DaggerActivityComponent;
 import com.vitta.develop_news.dagger.module.ActivityModule;
@@ -15,6 +17,10 @@ import javax.inject.Inject;
  * 作者：王文婷 邮箱：WVitta@126.com
  * 创建时间：2017/11/21 10:37
  * 描述：BaseActivity
+ *
+ * mvp activity 基类
+ *
+ * 初始化presenter 对象，绑定presenter 生命周期
  */
 
 public abstract class BaseActivity<P extends BasePresenter> extends RootActivity implements BaseView {
@@ -27,12 +33,8 @@ public abstract class BaseActivity<P extends BasePresenter> extends RootActivity
     protected ActivityComponent getActivityComponent(){
         return DaggerActivityComponent.builder()
                 .appComponent(App.getAppComponent())
-                .activityModule(getActivityModule())
+                .activityModule(new ActivityModule(this))
                 .build();
-    }
-
-    protected ActivityModule getActivityModule() {
-        return new ActivityModule(this);
     }
 
     //-------------------管理presenter 和 component 的生命周期----------------------------------------

@@ -1,4 +1,6 @@
-package com.vitta.develop_news.base;
+package com.vitta.develop_news.base.presenter;
+
+import com.vitta.develop_news.base.BaseView;
 
 /**
  * 作者：王文婷 邮箱：WVitta@126.com

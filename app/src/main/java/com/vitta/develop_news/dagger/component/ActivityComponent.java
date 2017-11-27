@@ -2,7 +2,7 @@ package com.vitta.develop_news.dagger.component;
 
 import android.app.Activity;
 
-import com.vitta.develop_news.MainActivity;
+import com.vitta.develop_news.ui.main.MainActivity;
 import com.vitta.develop_news.dagger.module.ActivityModule;
 import com.vitta.develop_news.dagger.scope.ActivityScope;
 
