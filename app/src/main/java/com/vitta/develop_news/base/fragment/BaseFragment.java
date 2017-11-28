@@ -87,7 +87,8 @@ public abstract class BaseFragment<P extends BasePresenter> extends RootFragment
 
     }
     //-----------------默认啥都没做------------------------------------------------------------------
-
-
     protected abstract void initInject();
+    protected abstract int getLayoutId();
+    protected abstract void initView();
+
 }

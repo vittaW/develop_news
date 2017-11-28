@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.vitta.develop_news.dagger.module.FragmentModule;
 import com.vitta.develop_news.dagger.scope.FragmentScope;
+import com.vitta.develop_news.ui.zhihu.ZhiHuMainFragment;
 
 import dagger.Component;
 
@@ -18,5 +19,7 @@ import dagger.Component;
 public interface FragmentComponent {
 
     Activity getActivity();
+
+    void inject(ZhiHuMainFragment zhiHuMainFragment);
 
 }
