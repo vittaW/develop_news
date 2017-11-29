@@ -7,8 +7,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
-
 import com.vitta.develop_news.R;
 import com.vitta.develop_news.base.activity.RootActivity;
 import com.vitta.develop_news.contants.Constants;
@@ -20,7 +18,6 @@ import com.vitta.develop_news.ui.setting.SettingFragment;
 import com.vitta.develop_news.ui.vtex.VtexMainFragment;
 import com.vitta.develop_news.ui.wechat.WechatMainFragment;
 import com.vitta.develop_news.ui.zhihu.ZhiHuMainFragment;
-
 import butterknife.BindView;
 import me.yokeyword.fragmentation.SupportFragment;
 

@@ -69,7 +69,7 @@ dependencies {
     compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.3@aar'
 
     //bga
-    compile 'cn.bingoogolapple:bga-swipebacklayout:1.1.5'
+//    compile 'cn.bingoogolapple:bga-swipebacklayout:1.1.5'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
